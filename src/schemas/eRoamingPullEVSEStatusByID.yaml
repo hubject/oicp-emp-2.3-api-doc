@@ -1,0 +1,18 @@
+type: object
+description: |
+  eRoamingPullEVSEStatusByID is a message that is sent in order to request the EVSE status data for specific EVSE IDs.
+required:
+  - ProviderID
+  - EvseID
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  EvseID:
+    type: array
+    maxItems: 100
+    items:
+      $ref: "./EvseID.yaml"
+example:
+  ProviderID: DE-DCB
+  EvseID:
+    - DE*XYZ*ETEST1

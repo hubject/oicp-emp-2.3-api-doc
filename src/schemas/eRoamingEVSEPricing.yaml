@@ -1,0 +1,30 @@
+type: object
+description: |
+  eRoamingEVSEPricing is sent by the HBS in response to eRoamingPullEVSEPricing requests.
+
+  Note:
+    * This message describes the response which has to be sent in reply to the eRoamingPullEVSEPricing request.
+
+required:
+  - EVSEPricing
+properties:
+  EVSEPricing:
+    type: array
+    description: A list of EVSE pricing data blocks for specific operators
+    items:
+      $ref: "./OperatorEVSEPricing.yaml"
+  StatusCode:
+    $ref: "./StatusCode.yaml"
+example:
+  EVSEPricing:
+    - EVSEPricing: 
+        - EvseID: "DE*XYZ*ETEST1"
+          EvseIDProductList:
+            - "AC 1"
+          ProviderID: "DE-DCB"
+      OperatorID: "DE*ABC"
+      OperatorName: "ABC technologies"
+  StatusCode:
+    AdditionalInfo: "Success"
+    Code: "000"
+    Description: "string"

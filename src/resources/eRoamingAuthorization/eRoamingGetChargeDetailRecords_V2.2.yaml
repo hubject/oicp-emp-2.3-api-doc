@@ -1,0 +1,48 @@
+post:
+  summary: eRoamingGetChargeDetailRecords_V2.2
+  operationId: eRoamingGetChargeDetailRecords_V2.2
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: EMP Online `OPTIONAL`, EMP Offline `MANDATORY`
+
+    ![Get Charge Detail Records diagram](images/getcdr.png)
+    
+    The operation allows EMPs to download CDRs that have been sent to Hubject by partner CPOs. This means if for example Hubject was unable to forward a CDR from a CPO to an EMP due to technical problems in the EMP’s backend, the EMP will still have the option of obtaining these CDRs. The EMP `MUST` specify a date range in the request. Hubject will return a list of all CDRs received by the HBS within the specified date range for the requesting EMP (i.e. all CDRs within the date range where the corresponding charging process was authorized by the EMP or authorized by Hubject based on the EMP’s authentication data.
+
+    Hubject does not check whether a requested CDR has already been provided to the requesting EMP in the past.
+
+    Pagination:
+
+    Starting from OICP 2.3, eRoaminGetChargeDetailRecords uses pagination. This is an implementation that EMPs `MUST` use in order to divide the amount of ChargeDetailRecords contained in the response of the pull request.
+
+    The parameters of the pagination are given at the end of the end point: `…​?page=0&size=20` where `page` indicates the number of the page for the response and `size` the amount of records to be provided in the response.
+
+    Example:
+
+    Using OICP 2.3 GetChargeDetailRecords endpoint for PROD environment:
+
+    https://service.hubject.com/api/oicp/cdrmgmt/v22/providers/{providerID}/get-charge-detail-records-request?page=0&size=1500
+
+    In the previous request we are telling to provide page __0__ with __1500__ records in it.
+
+    Important
+
+    The default number of records provided in the response are __20__ elements and the maximum number of records possible to obtain per page are __2000__.
+  tags:
+    - eRoamingAuthorization
+  parameters:
+    - $ref: "../../parameters/path/providerID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingGetChargeDetailRecords.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingChargeDetailRecords.yaml"

@@ -1,0 +1,92 @@
+type: object
+description: eRoamingPullEVSEData is a message that is sent in order to request the download of EVSE data of operators stored on the Hubject system.
+required:
+  - ProviderID
+  - GeoCoordinatesResponseFormat
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  SearchCenter:
+    type: object
+    description: |
+      "The data can be restricted using search parameters that are provided in this field.
+
+      Cannot be combined with “LastCall”."
+    required:
+      - GeoCoordinates
+      - Radius
+    properties:
+      GeoCoordinates:
+        $ref: "./GeoCoordinates.yaml"
+      Radius:
+        type: number
+        description: Radius in km around the position that is defined by the geo coordinates
+  LastCall:
+    type: string
+    format: date-time
+    description: "In case that this field is set, Hubject does not return the currently valid set of EVSE data but the changes compared to the status of EVSE data at the time of the last call. Cannot be combined with “SearchCenter”, “CountryCodes”, and “OperatorIDs”. "
+  GeoCoordinatesResponseFormat:
+    $ref: "./GeoCoordinatesResponseFormat.yaml"
+  CountryCodes:
+    type: array
+    description: "A list of countries whose EVSE’s a provider wants to retrieve. Cannot be combined with “LastCall”."
+    items:
+      $ref: "./CountryCode.yaml"
+  OperatorIds:
+    type: array
+    description: "A list of Operator Ids in ISO or DIN standard to download only EVSE’s of one or more operators. Cannot be combined with “LastCall”."
+    items:
+      $ref: "./OperatorID.yaml"
+  AuthenticationModes:
+    type: array
+    description: A list of Authentication Modes to start a charging process
+    items:
+      $ref: "./AuthenticationMode.yaml"
+  Accessibility:
+    type: array
+    description: A list of accessibility of the charging point
+    items:
+      $ref: "./Accessibility.yaml"
+  CalibrationLawDataAvailability:
+    type: array
+    description: A list of how caliration law data is provided by the charging point
+    items:
+      type: string
+      enum: ['Local', 'External', 'Not Available']
+  RenewableEnergy:
+    type: boolean
+    description: Select the charging stations use Renewable energy or not
+  IsHubjectCompatible:
+    type: boolean
+    description: Select if the charging station is Hubject Compatible
+  IsOpen24Hours:
+    type: boolean
+    description: Select the charging stations that are open 24 hours.
+example:
+  AuthenticationModes:
+   - "PnC"
+  Accessibility:
+   - "Free publicly accessible"
+  CalibrationLawDataAvailability:
+    - "Local"
+  CountryCodes:
+    - "DEU"
+  GeoCoordinatesResponseFormat: "Google"
+  IsHubjectCompatible: true
+  IsOpen24Hours: true
+  LastCall: "2020-09-23T14:27:43.052Z"
+  OperatorIds:
+    - "DE*ABC"
+  ProviderID: "DE-DCB"
+  RenewableEnergy: true
+  SearchCenter:
+    GeoCoordinates:
+      Google:
+        Coordinates: "52.480495 13.356465"
+      DecimalDegree:
+        Latitude: "52.480495"
+        Longitude: "13.356465"
+      DegreeMinuteSeconds:
+        Latitude: 9°21'39.32''
+        Longitude: 9°21'39.32''
+    Radius: 0

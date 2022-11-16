@@ -1,0 +1,16 @@
+type: object
+description: |
+  eRoamingPricingProductData is sent in response to eRoamingPullPricingProductData requests.
+
+  Note:
+    * This message describes the response which has to be sent in reply to the eRoamingPullPricingProductData request.
+required:
+  - OperatorPricingProducts
+properties:
+  OperatorPricingProducts:
+    type: array
+    description: List of pricing products offered by operators for a specific provider
+    items:
+      $ref: "./PricingProductDataType.yaml"
+  StatusCode:
+    $ref: "./StatusCode.yaml"

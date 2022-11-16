@@ -1,0 +1,11 @@
+type: string
+enum: ['Available', 'Reserved', 'Occupied', 'OutOfService', 'EvseNotFound', 'Unknown']
+description: |
+  | Option | Description |                
+  | ------ | ----------- |
+  | Available | Charging Spot is available for charging. |
+  | Reserved | Charging Spot is reserved and not available for charging. |
+  | Occupied | Charging Spot is busy. |
+  | OutOfService | Charging Spot is out of service and not available for charging. |
+  | EvseNotFound | The requested EvseID and EVSE status does not exist within the Hubject database. |
+  | Unknown | No status information available. |

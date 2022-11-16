@@ -1,0 +1,27 @@
+type: object
+required:
+  - ProviderID
+  - AuthenticationDataRecord
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  AuthenticationDataRecord:
+    type: array
+    items:
+      type: object
+      required:
+        - Identification
+      properties:
+        Identification:
+          type: object
+          properties:
+            RFIDMifareFamilyIdentification:
+              $ref: './RFIDMifareFamilyIdentification.yaml'
+            RFIDIdentification:
+              $ref: './RFIDIdentification.yaml'
+            QRCodeIdentification:
+              $ref: './QRCodeIdentification.yaml'
+            PlugAndChargeIdentification:
+              $ref: './PlugAndChargeIdentification.yaml'
+            RemoteIdentification:
+              $ref: './RemoteIdentification.yaml'

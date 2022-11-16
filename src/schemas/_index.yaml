@@ -1,0 +1,114 @@
+Accessibility:
+  $ref: "./Accessibility.yaml"
+AddressIso19773:
+  $ref: "./AddressIso19773.yaml"
+AuthenticationMode:
+  $ref: "./AuthenticationMode.yaml"
+ChargingFacility:
+  $ref: "./ChargingFacility.yaml"
+ChargingNotificationType:
+  $ref: "./ChargingNotificationType.yaml"
+ChargingPoolID:
+  $ref: "./ChargingPoolID.yaml"
+CountryCode:
+  $ref: "./CountryCode.yaml"
+CurrencyID:
+  $ref: "./CurrencyID.yaml"
+EnergySource:
+  $ref: "./EnergySource.yaml"
+eRoamingAcknowledgment:
+  $ref: "./eRoamingAcknowledgment.yaml"
+eRoamingAuthorizationStart:
+  $ref: "./eRoamingAuthorizationStart.yaml"
+eRoamingAuthorizationStop:
+  $ref: "./eRoamingAuthorizationStop.yaml"
+eRoamingAuthorizeRemoteReservationStart:
+  $ref: "./eRoamingAuthorizeRemoteReservationStart.yaml"
+eRoamingAuthorizeRemoteReservationStop:
+  $ref: "./eRoamingAuthorizeRemoteReservationStop.yaml"
+eRoamingAuthorizeRemoteStart:
+  $ref: "./eRoamingAuthorizeRemoteStart.yaml"
+eRoamingAuthorizeRemoteStop:
+  $ref: "./eRoamingAuthorizeRemoteStop.yaml"
+eRoamingAuthorizeStart:
+  $ref: "./eRoamingAuthorizeStart.yaml"
+eRoamingAuthorizeStop:
+  $ref: "./eRoamingAuthorizeStop.yaml"
+eRoamingChargeDetailRecord:
+  $ref: "./eRoamingChargeDetailRecord.yaml"
+eRoamingChargeDetailRecords:
+  $ref: "./eRoamingChargeDetailRecords.yaml"
+eRoamingChargingNotificationEnd:
+  $ref: "./eRoamingChargingNotificationEnd.yaml"
+eRoamingChargingNotificationError:
+  $ref: "./eRoamingChargingNotificationError.yaml"
+eRoamingChargingNotificationProgress:
+  $ref: "./eRoamingChargingNotificationProgress.yaml"
+eRoamingChargingNotificationStart:
+  $ref: "./eRoamingChargingNotificationStart.yaml"
+PullEvseDataRecord:
+  $ref: "./PullEvseDataRecord.yaml"
+eRoamingEVSEData:
+  $ref: "./eRoamingEVSEData.yaml"
+eRoamingEVSEPricing:
+  $ref: "./eRoamingEVSEPricing.yaml"
+eRoamingPullEVSEPricing:
+  $ref: "./eRoamingPullEVSEPricing.yaml"
+eRoamingPullEVSEData:
+  $ref: "./eRoamingPullEVSEData.yaml"
+eRoamingPullEVSEStatus:
+  $ref: "./eRoamingPullEVSEStatus.yaml"
+eRoamingPullEVSEStatusByID:
+  $ref: "./eRoamingPullEVSEStatusByID.yaml"
+eRoamingPullEVSEStatusByOperatorID:
+  $ref: "./eRoamingPullEVSEStatusByOperatorID.yaml"
+eRoamingPullPricingProductData:
+  $ref: "./eRoamingPullPricingProductData.yaml"
+eRoamingPushAuthenticationData:
+  $ref: "./eRoamingPushAuthenticationData.yaml"
+EvcoID:
+  $ref: "./EvcoID.yaml"
+EvseDataRecord:
+  $ref: "./EvseDataRecord.yaml"
+EvseID:
+  $ref: "./EvseID.yaml"
+EvseStatus:
+  $ref: "./EvseStatus.yaml"
+GeoCoordinates:
+  $ref: "./GeoCoordinates.yaml"
+GeoCoordinatesResponseFormat:
+  $ref: "./GeoCoordinatesResponseFormat.yaml"
+InfoTextType:
+  $ref: "./InfoTextType.yaml"
+OpeningTimes:
+  $ref: "./OpeningTimes.yaml"
+PlugAndChargeIdentification:
+  $ref: "./PlugAndChargeIdentification.yaml"
+RFIDMifareFamilyIdentification:
+  $ref: "./RFIDMifareFamilyIdentification.yaml"
+ProductID:
+  $ref: "./ProductID.yaml"
+RemoteIdentification:
+  $ref: "./RemoteIdentification.yaml"
+SessionID:
+  $ref: "./SessionID.yaml"
+RFIDIdentification:
+  $ref: "./RFIDIdentification.yaml"
+StatusCode:
+  $ref: "./StatusCode.yaml"
+QRCodeIdentification:
+  $ref: "./QRCodeIdentification.yaml"
+ProviderID:
+  $ref: "./ProviderID.yaml"
+Plug:
+  $ref: "./Plug.yaml"
+OperatorID:
+  $ref: "./OperatorID.yaml"
+UID:
+  $ref: "./UID.yaml"
+ReferenceUnit:
+  $ref: "./ReferenceUnit.yaml"
+PaymentOption:
+  $ref: "./PaymentOption.yaml"
+ValueAddedService:
+  $ref: "./ValueAddedService.yaml"

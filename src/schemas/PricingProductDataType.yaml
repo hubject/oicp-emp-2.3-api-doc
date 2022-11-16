@@ -1,0 +1,29 @@
+type: object
+required:
+  - OperatorID
+  - ProviderID
+  - PricingDefaultPrice
+  - PricingDefaultPriceCurrency
+  - PricingDefaultReferenceUnit
+  - PricingProductDataRecords
+properties:
+  OperatorID:
+    $ref: "./OperatorID.yaml"
+  OperatorName:
+    type: string
+    description: Free text for operator
+    maximum: 100
+  ProviderID:
+    $ref: "./ProviderIDAsterisk.yaml"
+  PricingDefaultPrice:
+    type: number
+    description: A default price for pricing sessions at undefined EVSEs
+  PricingDefaultPriceCurrency:
+    $ref: "./CurrencyID.yaml"
+  PricingDefaultReferenceUnit:
+    $ref: "./ReferenceUnit.yaml"
+  PricingProductDataRecords:
+    type: array
+    description: A list of pricing products
+    items:
+      $ref: "./PricingProductDataRecord.yaml"

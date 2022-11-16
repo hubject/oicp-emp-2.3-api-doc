@@ -1,0 +1,39 @@
+type: object
+description: |
+  eRoamingGetChargeDetailRecords is a message to request a list of charge detail records.
+
+  Important:
+  * This message is only mandatory for offline EMPs.
+required:
+  - ProviderID
+  - From
+  - To
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  From:
+    type: string
+    format: date-time
+    description: Start of the requested time range.
+  To:
+    type: string
+    format: date-time
+    description: End of the requested time range.
+  SessionID:
+    type: array
+    description: The Hubject SessionID that identifies the process
+    items:
+      $ref: "./SessionID.yaml"
+  OperatorID:
+    $ref: "./OperatorID.yaml"
+  CDRForwarder:
+    type: boolean
+    description: Indicates if the CDR was successfuly forwarded to the EMP or not.
+example:
+  CDRForwarded: false
+  From: "2020-08-23T14:20:10.285Z"
+  OperatorID: "DE*ABC"
+  ProviderID: "DE-DCN"
+  To: "2020-09-23T14:20:10.285Z"
+  SessionID:
+    - "f98efba4-02d8-4fa0-b810-9a9d50d2c527"

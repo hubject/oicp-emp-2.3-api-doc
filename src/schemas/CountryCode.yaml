@@ -1,0 +1,16 @@
+type: string
+description: |
+  The CountryCodeType allows for Alpha-3 country codes only as of OICP 2.2 and OICP 2.3
+
+  For Alpha-3 (three-letter) country codes as defined in ISO 3166-1.
+
+  __Examples:__
+  
+  | Option | Description |
+  | ------ | ----------- |
+  | AUT | Austria |
+  | DEU | Germany |
+  | FRA | France |
+  | USA | United States |
+maximum: 3
+minimum: 3

@@ -1,0 +1,30 @@
+type: object
+required:
+  - OperatorID
+  - EVSEPricing
+properties:
+  OperatorID:
+    $ref: "./OperatorID.yaml"
+  OperatorName:
+    type: string
+    description: Free text for operator
+    maximum: 100
+  EVSEPricing:
+    type: array
+    description: List of EVSE pricings offered by the operator.
+    items:
+      type: object
+      required:
+        - EvseID
+        - ProviderID
+        - EvseIDProductList
+      properties:
+        EvseID:
+          $ref: "./EvseID.yaml"
+        ProviderID:
+          $ref: "./ProviderID.yaml"
+        EvseIDProductList:
+          type: array
+          description: A list of pricing products applicable per EvseID
+          items:
+            $ref: "./ProductID.yaml"

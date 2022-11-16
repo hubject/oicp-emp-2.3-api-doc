@@ -1,0 +1,54 @@
+type: object
+description: |
+  eRoamingEVSEStatus is sent in response to eRoamingPullEVSEStatus requests.
+
+  Note:
+    * This message describes the response which will be received as response to the eRoamingPullEVSEStatus request.
+required:
+  - EvseStatuses
+properties:
+  EvseStatuses:
+    type: object
+    description: A list of EVSE status blocks that are each assigned to a certain operator.
+    required:
+      - OperatorEvseStatus
+    properties:
+      OperatorEvseStatus:
+        type: array
+        items:
+          type: object
+          required:
+            - OperatorID
+            - EvseStatusRecord
+          properties:          
+            OperatorID:
+              $ref: "./OperatorID.yaml"
+            OperatorName:
+              type: string
+              description: Free text for operator
+            EvseStatusRecord:
+              type: array
+              items:
+                type: object
+                required:
+                  - EvseID
+                  - EvseStatus
+                properties:
+                  EvseID:
+                    $ref: "./EvseID.yaml"
+                  EvseStatus:
+                    $ref: "./EvseStatus.yaml"
+  StatusCode:
+    $ref: "./StatusCode.yaml"
+example:
+  EvseStatuses:
+    OperatorEvseStatus:
+      - EvseStatusRecord:
+          - EvseID: "DE*XYZ*ETEST1"
+            EvseStatus: "Available"
+        OperatorID: "DE*ABC"
+        OperatorName: "ABC technologies"
+  StatusCode:
+    AdditionalInfo: "Success"
+    Code: "000"
+    Description: "string"

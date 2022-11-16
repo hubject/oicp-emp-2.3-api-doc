@@ -1,0 +1,16 @@
+type: object
+description: eRoamingPullEVSEStatusByOperatorID is a message that is sent in order to request the EVSE status data for specific OperatorsIDs (i.e. CPO(s) specific EVSE status data).
+required:
+  - ProviderID
+  - OperatorID
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  OperatorID:
+    type: array
+    items:
+      $ref: "./OperatorID.yaml"
+example:
+  ProviderID: DE-DCB
+  OperatorID:
+    - DE*ABC
