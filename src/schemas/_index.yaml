@@ -112,3 +112,15 @@ PaymentOption:
   $ref: "./PaymentOption.yaml"
 ValueAddedService:
   $ref: "./ValueAddedService.yaml"
+ProviderIDAsterisk:
+  $ref: "./ProviderIDAsterisk.yaml"
+Identification:
+  $ref: "./Identification.yaml"
+PricingProductDataRecord:
+  $ref: "./PricingProductDataRecord.yaml"
+eRoamingPricingProductData:
+  $ref: "./eRoamingPricingProductData.yaml"
+eRoamingEVSEStatus:
+  $ref: "./eRoamingEVSEStatus.yaml"
+ProviderAuthenticationData:
+  $ref: "./ProviderAuthenticationData.yaml"

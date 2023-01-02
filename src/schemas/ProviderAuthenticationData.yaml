@@ -13,15 +13,4 @@ properties:
         - Identification
       properties:
         Identification:
-          type: object
-          properties:
-            RFIDMifareFamilyIdentification:
-              $ref: './RFIDMifareFamilyIdentification.yaml'
-            RFIDIdentification:
-              $ref: './RFIDIdentification.yaml'
-            QRCodeIdentification:
-              $ref: './QRCodeIdentification.yaml'
-            PlugAndChargeIdentification:
-              $ref: './PlugAndChargeIdentification.yaml'
-            RemoteIdentification:
-              $ref: './RemoteIdentification.yaml'
+          $ref: "./Identification.yaml"
