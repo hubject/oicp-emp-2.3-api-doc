@@ -1,0 +1,49 @@
+type: object
+required:
+  - Country
+  - City
+  - Street
+  - PostalCode
+  - HouseNum
+properties:
+  Country:
+    $ref: "./CountryCode.yaml"
+  City:
+    type: string
+    maximum: 50
+    minimum: 1
+  Street:
+    type: string
+    maximum: 100
+    minimum: 2
+  PostalCode:
+    type: string
+    maximum: 10
+  HouseNum:
+    type: string
+    maximum: 10
+  Floor:
+    type: string
+    maximum:  5
+  Region:
+    type: string
+    maximum: 50
+  ParkingFacility:
+    type: boolean
+  ParkingSpot:
+    type: string
+    maximum: 5
+  TimeZone:
+    type: string
+    pattern: '[U][T][C][+,-][0-9][0-9][:][0-9][0-9]'
+    description: |
+      `[U][T][C][+,-][0-9][0-9][:][0-9][0-9]`
+      The expression validates a string as a Time zone with UTC offset.
+
+      Examples:
+
+      UTC+01:00
+
+      UTC-05:00
+    example: UTC-05:00
+

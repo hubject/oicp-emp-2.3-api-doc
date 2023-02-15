@@ -1,0 +1,40 @@
+type: object
+description: |
+  eRoamingPullEVSEStatus is a message that is sent in order to request the download of EVSE status data stored on the Hubject system
+
+  Tip:
+    * In case not all but a specific EVSE status is needed, Hubject offers the service eRoamingPullEVSEStatusByID and eRoamingPullEVSEStatusByOperatorID.
+    * We recommend a to send the request with a frequency from 1 to 5 minutes.
+required:
+  - ProviderID
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  SearchCenter:
+    type: object
+    description: The data can be restricted using search parameters that are provided in this field.
+    required:
+      - GeoCoordinates
+      - Radius
+    properties:
+      GeoCoordinates:
+        $ref: "./GeoCoordinates.yaml"
+      Radius:
+        type: number
+        description: Radius in km around the position that is defined by the geo coordinates
+  EVSEStatus:
+    $ref: "./EvseStatus.yaml"
+example:
+  EvseStatus: "Available"
+  ProviderID: "DE-DCB"
+  SearchCenter:
+    GeoCoordinates:
+      Google:
+        Coordinates: "52.480495 13.356465"
+      DecimalDegree:
+        Latitude: "52.480495"
+        Longitude: "13.356465"
+      DegreeMinuteSeconds:
+        Latitude: 9°21'39.32''
+        Longitude: 9°21'39.32''
+    Radius: 0

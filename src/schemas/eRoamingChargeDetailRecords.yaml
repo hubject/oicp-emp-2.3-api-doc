@@ -1,0 +1,104 @@
+type: object
+description: eRoamingChargeDetailRecord is a message containing charging process details (such as meter values, etc.).
+required:
+  - content
+  - number
+  - size
+  - totalElements
+  - last
+  - totalPages
+  - first
+  - numberOfElements
+  - StatusCode
+properties:
+  content:
+    type: array
+    items:
+      $ref: "./eRoamingChargeDetailRecord.yaml"
+  number:
+    type: integer
+    description: Number of the page
+  size:
+    type: integer
+    description: Size of records requested per page
+  totalElements:
+    type: integer
+    description: Number of total charge detail records available from the request
+  last:
+    type: boolean
+    description: Indicates if the current page is the last page
+  totalPages:
+    type: integer
+    description: Number of total pages available for the request
+  first:
+    type: boolean
+    description: indicates if the current page is the first page
+  numberOfElements:
+    type: integer
+    description: Number of records in the page
+  StatusCode:
+    $ref: "./StatusCode.yaml"
+example:
+  content:
+    - CalibrationLawVerificationInfo:
+        CalibrationLawCertificateID: CD-12BD-2783T
+        PublicKey: a9sdh839alskldh/WEDjaskdjis20ij2wdpasodpjlkofi3ed3ed
+        MeteringSignatureUrl: http://www.meteringexample1234.com
+        MeteringSignatureEncodingFormat: UTF-8
+        SignedMeteringValuesVerificationInstruction: please follow instructions provided in the mentioned URL
+      CPOPartnerSessionID: 1234XYZ
+      ChargingEnd: "2020-09-23T14:17:53.038Z"
+      ChargingStart: "2020-09-23T14:17:53.038Z"
+      ConsumedEnergy: 10
+      EMPPartnerSessionID: "9876655"
+      EvseID: DE*XYZ*ETEST1
+      HubOperatorID: DE*ABC
+      HubProviderID: DE-DCB
+      Identification:
+        PlugAndChargeIdentification:
+          EvcoID: DE-DCB-C12345678-X
+        QRCodeIdentification:
+          EvcoID: DE-DCB-C12345678-X
+          HashedPIN:
+            Function: Bcrypt
+            LegacyHashData:
+              Function: MD5
+              Salt: string
+              Value: string123456
+            Value: string123456
+          PIN: "1234"
+        RFIDIdentification:
+          EvcoID: DE-DCB-C12345678-X
+          ExpiryDate: "2021-01-23T14:17:53.039Z"
+          PrintedNumber: "9876655"
+          RFID: mifareCls
+          UID: 1234ABCD
+        RFIDMifareFamilyIdentification:
+          UID: 1234ABCD
+        RemoteIdentification:
+          EvcoID: DE-DCB-C12345678-X
+      MeterValueEnd: 10
+      MeterValueInBetween:
+        meterValues:
+          - 10
+      MeterValueStart: 0
+      SignedMeteringValues:
+          - SignedMeteringValue: AAAAAAAAAAAAAAABasdno2e89d2ekasdeBBBBBBBBBBBBBBBBCCCCCCCCC23423BBBBBBBBBBBBBAS
+            MeteringStatus: Start
+          - SignedMeteringValue: AAAAAAAAAAAAAAABBBBdaskjhadksiqwd2309nede9owineBBBBBBBBBBBBBCCCCCCCCC23423BBBBBBBBBBBBBAS
+            MeteringStatus: End
+      PartnerProductID: "AC 1"
+      SessionEnd: "2020-09-23T14:17:53.039Z"
+      SessionID: f98efba4-02d8-4fa0-b810-9a9d50d2c527
+      SessionStart: "2020-09-23T14:17:53.039Z"
+  number: 0
+  size: 20
+  totalElements: 1
+  last: true
+  totalPages: 1
+  first: true
+  numberOfElements: 1
+  StatusCode:
+    Code: "000"
+    Description: Description
+    AdditionalInfo: Additional info

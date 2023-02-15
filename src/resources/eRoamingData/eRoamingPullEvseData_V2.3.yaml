@@ -1,0 +1,47 @@
+post:
+  summary: eRoamingPullEvseData_V2.3
+  operationId: eRoamingPullEvseData_V2.3
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: `MANDATORY`
+
+    ![Pull evse data diagram](images/pullevsedata.png)
+    
+    When an EMP sends an eRoamingPullEVSEData request, Hubject checks whether there is a valid contract between Hubject and the EMP for the service type (EMP must be the subscriber). If so, the operation allows downloading EVSEData from Hubject. When an EMP sends an eRoamingPullEVSEData request, Hubject identifies all currently valid EVSEData records of all operators.
+
+    For every EVSE data record Hubject identifies the timestamp of the last update, which has been performed on the record. The timestamp is returned with the attribute “lastUpdate”.
+
+    __Delta pull:__
+
+    As mentioned above, the operation by default returns all currently valid EVSE data records. However, the requesting EMP has the possibility to download only the changes (delta) compared to a certain time in the past. In order to do so, the EMP MUST provide the optional date/time field “LastCall”, indicating his last EVSE pull request. In case that Hubject receives the LastCall parameter, Hubject compares the EVSE records from the time of the last call with the currently valid records. As a result, Hubject assigns the attribute “deltaType” (possible values: insert, update, delete) to every response EVSE data record indicating whether the particular record has been inserted, updated or deleted in the meantime. EVSE data records that have not changed will not be part of the response.
+
+    Note:
+    * The delta pull option cannot be combined with radial search, because in some cases this could lead to data inconsistency on the EMP’s side. This is why the API only allows the provision of either the attribute “SearchCenter” or “LastCall”.
+    
+    __Pagination:__
+
+    Starting from OICP 2.3, eRoamingPullEvseData uses pagination. This is an implementation that EMPs `MUST` use in order to divide the amount of EvseDataRecords contained in the response of the pull request.
+
+    The parameters of the pagination are given at the end of the end point: `…​?page=0&size=20` where `page` indicates the number of the page for the response and `size` the amount of records to be provided in the response.
+
+    Important:
+    * __The default number of records provided in the eRoamingEvseData response is 20 elements.__
+
+  tags:
+    - eRoamingEvseData
+  parameters:
+    - $ref: "../../parameters/path/providerID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingPullEVSEData.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingEVSEData.yaml"

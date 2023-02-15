@@ -1,0 +1,16 @@
+type: object
+required:
+  - ProviderID
+  - AuthenticationDataRecord
+properties:
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  AuthenticationDataRecord:
+    type: array
+    items:
+      type: object
+      required:
+        - Identification
+      properties:
+        Identification:
+          $ref: "./Identification.yaml"

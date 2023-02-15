@@ -1,0 +1,45 @@
+type: object
+description: |
+  eRoamingPushAuthenticationData is a message that is sent in order to upload authentication data to Hubject.
+
+  Note:
+  * This message is only for EMPs onboarded to the Hubject platform as offline EMPs.
+required:
+  - ActionType
+  - ProviderAuthenticationData
+properties:
+  ActionType:
+    type: string
+    enum: [fullLoad, update, insert, delete]
+    description: Describes the action that has to be performed by Hubject with the provided data.
+  ProviderAuthenticationData:
+    $ref: "./ProviderAuthenticationData.yaml"
+example:
+  ActionType: fullLoad
+  ProviderAuthenticationData:
+    AuthenticationDataRecord:
+      - Identification:
+          RFIDMifareFamilyIdentification:
+            UID: 1234ABCD
+        QRCodeIdentification:
+          EvcoID: DE-DCB-C12345678-X
+          HashedPIN:
+            Function: Bcrypt
+            LegacyHashData:
+              Function: MD5
+              Salt: "string"
+              Value: "string"
+            Value: "string"
+          PIN: "1234"
+        PlugAndChargeIdentification:
+          EvcoID: DE-DCB-C12345678-X
+        RemoteIdentification:
+          EvcoID: DE-DCB-C12345678-X
+        RFIDIdentification:
+          EvcoID: "DE-DCB-C12345678-X"
+          ExpiryDate: "2021-01-23T14:21:23.744Z"
+          PrintedNumber: "9876655"
+          RFID: "mifareCls"
+          UID: "1234ABCD"
+    ProviderID: "DE-DCB"
+
