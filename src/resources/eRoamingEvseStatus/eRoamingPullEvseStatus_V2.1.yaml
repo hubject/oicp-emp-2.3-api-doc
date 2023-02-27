@@ -23,7 +23,7 @@ post:
           oneOf:
             - $ref: "../../schemas/eRoamingPullEVSEStatus.yaml"
             - $ref: "../../schemas/eRoamingPullEVSEStatusByID.yaml"
-            - $ref: "../../schemas/eRoamingPullEVSEStatusByOperatoriD.yaml"
+            - $ref: "../../schemas/eRoamingPullEVSEStatusByOperatorID.yaml"
   responses:
     '200':
       description: Expected response to a valid request
