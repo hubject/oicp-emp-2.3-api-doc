@@ -1,0 +1,38 @@
+type: object
+description: |
+  eRoamingEVSEStatusById is sent in response to eRoamingPullEVSEByIDStatus requests.
+
+  Note:
+    * This message describes the response which will be received as response to the eRoamingPullEVSEByIDStatus request.
+required:
+  - EVSEStatusRecords
+properties:
+  EVSEStatusRecords:
+    type: object
+    description: A list of the requested EVSE status blocks.
+    required:
+      - EvseStatusRecord
+    properties:
+      EvseStatusRecord:
+        type: array
+        items:
+          type: object
+          required:
+            - EvseID
+            - EvseStatus
+          properties:
+            EvseID:
+              $ref: "./EvseID.yaml"
+            EvseStatus:
+              $ref: "./EvseStatus.yaml"
+  StatusCode:
+    $ref: "./StatusCode.yaml"
+example:
+  EVSEStatusRecords:
+    EvseStatusRecord:
+      - EvseID: "DE*XYZ*ETEST1"
+        EvseStatus: "Available"
+  StatusCode:
+    AdditionalInfo: "Success"
+    Code: "000"
+    Description: "string"

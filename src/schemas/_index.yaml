@@ -122,6 +122,8 @@ eRoamingPricingProductData:
   $ref: "./eRoamingPricingProductData.yaml"
 eRoamingEVSEStatus:
   $ref: "./eRoamingEVSEStatus.yaml"
+eRoamingEVSEStatusByID:
+  $ref: "./eRoamingEVSEStatusByID.yaml"
 ProviderAuthenticationData:
   $ref: "./ProviderAuthenticationData.yaml"
 eRoamingGetChargeDetailRecords:
