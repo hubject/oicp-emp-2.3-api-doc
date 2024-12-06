@@ -3406,9 +3406,9 @@ components:
         Note:
           * This message describes the response which has to be sent in reply to the eRoamingPullPricingProductData request.
       required:
-        - OperatorPricingProducts
+        - PricingProductData
       properties:
-        OperatorPricingProducts:
+        PricingProductData:
           type: array
           description: List of pricing products offered by operators for a specific provider
           items:
