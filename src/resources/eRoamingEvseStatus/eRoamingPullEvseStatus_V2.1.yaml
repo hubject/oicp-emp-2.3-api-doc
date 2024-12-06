@@ -25,9 +25,11 @@ post:
             - $ref: "../../schemas/eRoamingPullEVSEStatusByID.yaml"
             - $ref: "../../schemas/eRoamingPullEVSEStatusByOperatorID.yaml"
   responses:
-    '200':
+    "200":
       description: Expected response to a valid request
       content:
         application/json:
           schema:
-            $ref: "../../schemas/eRoamingEVSEStatus.yaml"
+            oneOf:
+              - $ref: "../../schemas/eRoamingEVSEStatus.yaml"
+              - $ref: "../../schemas/eRoamingEVSEStatusByID.yaml"
