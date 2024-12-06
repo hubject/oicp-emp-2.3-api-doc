@@ -529,7 +529,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingEVSEStatus'
+                oneOf:
+                  - $ref: '#/components/schemas/eRoamingEVSEStatus'
+                  - $ref: '#/components/schemas/eRoamingEVSEStatusByID'
   '/dynamicpricing/v10/providers/{providerID}/pricing-products':
     post:
       summary: eRoamingPullPricingProductData_V1.0
@@ -3494,6 +3496,45 @@ components:
                   EvseStatus: Available
               OperatorID: DE*ABC
               OperatorName: ABC technologies
+        StatusCode:
+          AdditionalInfo: Success
+          Code: '000'
+          Description: string
+    eRoamingEVSEStatusByID:
+      type: object
+      description: |
+        eRoamingEVSEStatusById is sent in response to eRoamingPullEVSEByIDStatus requests.
+
+        Note:
+          * This message describes the response which will be received as response to the eRoamingPullEVSEByIDStatus request.
+      required:
+        - EVSEStatusRecords
+      properties:
+        EVSEStatusRecords:
+          type: object
+          description: A list of the requested EVSE status blocks.
+          required:
+            - EvseStatusRecord
+          properties:
+            EvseStatusRecord:
+              type: array
+              items:
+                type: object
+                required:
+                  - EvseID
+                  - EvseStatus
+                properties:
+                  EvseID:
+                    $ref: '#/components/schemas/EvseID'
+                  EvseStatus:
+                    $ref: '#/components/schemas/EvseStatus'
+        StatusCode:
+          $ref: '#/components/schemas/StatusCode'
+      example:
+        EVSEStatusRecords:
+          EvseStatusRecord:
+            - EvseID: DE*XYZ*ETEST1
+              EvseStatus: Available
         StatusCode:
           AdditionalInfo: Success
           Code: '000'
