@@ -24,7 +24,7 @@ properties:
   totalElements:
     type: integer
     description: Number of total charge detail records available from the request
- pageable:
+  pageable:
     type: object
     properties:
       sort:
