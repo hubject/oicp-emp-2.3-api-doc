@@ -62,8 +62,7 @@ properties:
   empty:
     type: boolean
     description: Whether the data set is empty.
-    example: true   
-    
+    example: true  
   last:
     type: boolean
     description: Indicates if the current page is the last page
@@ -134,6 +133,17 @@ example:
   number: 0
   size: 20
   totalElements: 1
+  pageable: 
+    sort: 
+      sorted: false
+      empty: true
+      unsorted: true    
+    pageSize: 20
+      pageNumber: 0
+      offset: 0
+      paged: true
+      unpaged: false
+  empty: false      
   last: true
   totalPages: 1
   first: true
