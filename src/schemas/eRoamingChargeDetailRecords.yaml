@@ -133,20 +133,20 @@ example:
   number: 0
   size: 20
   totalElements: 1
-  pageable: 
-    sort: 
-      sorted: false
-      empty: true
-      unsorted: true    
-    pageSize: 20
-      pageNumber: 0
-      offset: 0
-      paged: true
-      unpaged: false
   empty: false      
   last: true
   totalPages: 1
   first: true
+  pageable:
+    sort:
+      sorted: false
+      empty: true
+      unsorted: true
+    pageSize: 20
+    pageNumber: 0
+    offset: 0
+    paged: true
+    unpaged: false
   numberOfElements: 1
   StatusCode:
     Code: "000"
