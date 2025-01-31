@@ -18,9 +18,7 @@ properties:
     minimum: 0
     description: Amperage of the Charging Facility
   Power:
-    type: integer
-    maximum: 999
-    minimum: 0
+    type: number
     description: Charging Facility power in kW
   ChargingModes:
     type: array

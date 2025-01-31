@@ -14,7 +14,7 @@ properties:
   content:
     type: array
     items:
-      $ref: "./eRoamingChargeDetailRecord.yaml"
+      $ref: "./eRoamingChargeDetailRecord.yaml"    
   number:
     type: integer
     description: Number of the page
@@ -24,6 +24,45 @@ properties:
   totalElements:
     type: integer
     description: Number of total charge detail records available from the request
+  pageable:
+    type: object
+    properties:
+      sort:
+        type: object
+        properties:
+          sorted:
+            type: boolean
+            description: Whether the results are sorted.
+          empty:
+            type: boolean
+            description: Whether the sort is empty.
+          unsorted:
+            type: boolean
+            description: Whether the results are unsorted.
+      pageSize:
+        type: integer
+        description: The number of items per page.
+        example: 20
+      pageNumber:
+        type: integer
+        description: The current page number.
+        example: 0
+      offset:
+        type: integer
+        description: The offset of the current page.
+        example: 0
+      paged:
+        type: boolean
+        description: Whether the response is paginated.
+        example: true
+      unpaged:
+        type: boolean
+        description: Whether the response is unpaginated.
+        example: false
+  empty:
+    type: boolean
+    description: Whether the data set is empty.
+    example: true  
   last:
     type: boolean
     description: Indicates if the current page is the last page
@@ -94,9 +133,20 @@ example:
   number: 0
   size: 20
   totalElements: 1
+  empty: false      
   last: true
   totalPages: 1
   first: true
+  pageable:
+    sort:
+      sorted: false
+      empty: true
+      unsorted: true
+    pageSize: 20
+    pageNumber: 0
+    offset: 0
+    paged: true
+    unpaged: false
   numberOfElements: 1
   StatusCode:
     Code: "000"
